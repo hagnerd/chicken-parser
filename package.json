@@ -1,8 +1,15 @@
 {
   "name": "chicken-parser",
+  "description": "",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "author": "Matt Hagner <web@matthagner>",
+  "homepage": "https://github.com/hagnerd/chicken-parser#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hagnerd/chicken-parser.git"
+  },
   "dependencies": {
     "enquirer": "^2.3.0",
     "fs-jetpack": "^2.2.2",

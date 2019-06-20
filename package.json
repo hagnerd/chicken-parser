@@ -1,0 +1,17 @@
+{
+  "name": "chicken-parser",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "enquirer": "^2.3.0",
+    "fs-jetpack": "^2.2.2",
+    "xlsx": "^0.14.3"
+  },
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "bin": {
+    "chicken-parser": "./cli.js"
+  }
+}

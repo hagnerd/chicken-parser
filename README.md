@@ -1,7 +1,7 @@
 # chicken-parser
 
 ## Installation
-Right now the package isn't hosted on NPM, so you'll have to git clone the repo, cd into the directory, and `yarn install` or `npm install`.
+Right now the package isn't hosted on NPM so you will have to git clone the repo, cd into the directory, and `yarn install` or `npm install`.
 
 After that is done, to make the package globally available on your system, run `yarn link` or `npm link`.
 

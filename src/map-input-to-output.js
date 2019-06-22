@@ -90,7 +90,7 @@ function mapInputToOutput(input) {
     }
 
     return output;
-  });
+  }, {});
 }
 
 module.exports = mapInputToOutput;

@@ -3,12 +3,14 @@
 const { prompt } = require("enquirer");
 const { constructCharacter, writeToJson } = require("./src");
 
-function withDefaults({ fullname, displayName, outputDir, inputDir }) {
+function withDefaults({ fullname, displayName, outputDir, inputDir, label }) {
   return {
     fullname,
     displayName: displayName === "" ? fullname : displayName,
     outputDir: outputDir === "" ? "./output" : outputDir,
-    inputDir: inputDir === "" ? "./input" : inputDir
+    inputDir: inputDir === "" ? "./input" : inputDir,
+    label:
+      label !== undefined ? label : fullname.toLowerCase().replace(/ /g, "")
   };
 }
 

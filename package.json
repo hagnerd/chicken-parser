@@ -16,9 +16,12 @@
     "xlsx": "^0.14.3"
   },
   "scripts": {
-    "start": "node src/index.js"
+    "test": "jest"
   },
   "bin": {
     "chicken-parser": "./cli.js"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0"
   }
 }

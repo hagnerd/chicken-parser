@@ -3,6 +3,24 @@
 const { prompt } = require("enquirer");
 const { constructCharacter, writeToJson } = require("./src");
 
+function withDefaults({ fullname, displayName, outputDir, inputDir }) {
+  return {
+    fullname,
+    displayName: displayName === "" ? fullname : displayName,
+    outputDir: outputDir === "" ? "./output" : outputDir,
+    inputDir: inputDir === "" ? "./input" : inputDir
+  };
+}
+
+const DISPLAY_NAME_PROMPT = `Enter the display name for the character.
+[Defaults to the full character name] Press Enter to Skip`;
+
+const OUTPUT_DIR_PROMPT = `Enter the path to the directory you would like the file to be written.
+[ Defaults to ./output ] Press Enter to Skip`;
+
+const INPUT_DIR_PROMPT = `Enter the path to the input folder
+[ Defaults to ./input] Press Enter to Skip`;
+
 async function run() {
   try {
     const response = await prompt([
@@ -14,31 +32,27 @@ async function run() {
       {
         type: "input",
         name: "displayName",
-        message: "Enter the display name for the character"
-      },
-      {
-        type: "input",
-        name: "label",
-        message: "Enter the name of the file you would like to create"
+        message: DISPLAY_NAME_PROMPT
       },
       {
         type: "input",
         name: "outputDir",
-        message:
-          "Enter the path to the directory you would like the file to be written"
+        message: OUTPUT_DIR_PROMPT
       },
       {
         type: "input",
-        name: "inputFilePath",
-        message: "Enter the input filepath"
+        name: "inputDir",
+        message: INPUT_DIR_PROMPT
       }
     ]);
 
-    const characterJson = constructCharacter(response);
+    const defaultResponse = withDefaults(response);
+
+    const characterJson = constructCharacter(defaultResponse);
 
     writeToJson({
-      outputDir: response.outputDir,
-      filename: response.label,
+      outputDir: defaultResponse.outputDir,
+      filename: defaultResponse.fullname.toLowerCase().replace(/ /g, ""),
       character: characterJson
     });
   } catch (e) {
